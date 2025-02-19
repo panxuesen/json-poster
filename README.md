@@ -3,7 +3,7 @@
 通过配置 JSON 快速生成精美海报。
 
 <p align="center">
-  <img src="https://your-banner-image-url.png" alt="json-poster banner" width="800"/>
+  <img src="./src/img/banner.jpg" alt="json-poster banner" width="800"/>
 </p>
 
 <p align="center">
@@ -26,6 +26,7 @@
 - 📏 **对齐方式** - 支持多种对齐方式，轻松实现元素定位
 - 📝 **文字处理** - 支持多行文本、省略号、自定义字体等
 - 🖼️ **图片处理** - 支持多种缩放模式、高斯模糊、圆角等
+- 📚 **字体加载** - 支持自定义字体加载
 
 ## 📦 安装
 
