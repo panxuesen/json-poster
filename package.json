@@ -5,8 +5,12 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
+    "LICENSE",
+    "tsconfig.json",
+    "README.md",
+    "bin",
     "dist",
-    "README.md"
+    "src"
   ],
   "scripts": {
     "build": "tsc",
