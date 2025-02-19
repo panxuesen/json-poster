@@ -1,9 +1,15 @@
 import sharp, { Blend } from 'sharp';
 import axios from 'axios';
+import fontkit from 'fontkit';
 import { ElementType, ElementImg, ElementRect, ElementText, ElementLine, IPoster, IElement, IColor, ElementMutipleText, TextFragment, xAlign, yAlign, ElementAlign, TextFragmentStyle } from "./types";
 // import { posterDatas } from './demoData';
 
-// TODO 使用fontkit或者canvas加载字体，或者直接将新加字体放到系统字体目录
+// 使用fontkit或者canvas加载字体，或者直接将新加字体放到系统字体目录
+// 加载字体
+
+export const loadFont = (filename: string, postscriptName?: string) => {
+  return fontkit.openSync(filename, postscriptName);
+}
 
 /**
  * 创建海报 多种对齐方式
