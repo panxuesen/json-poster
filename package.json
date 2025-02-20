@@ -30,6 +30,9 @@
     "url": "https://github.com/panxuesen/json-poster/issues"
   },
   "homepage": "https://www.npmjs.com/package/json-poster?activeTab=readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "dependencies": {
     "axios": "^1.7.9",
     "fontkit": "^2.0.4",

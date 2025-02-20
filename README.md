@@ -42,7 +42,7 @@ yarn add json-poster
 ## 🚀 快速开始
 
 ```typescript
-import { createImagesWithSharp } from 'json-poster';
+import { createPoster } from 'json-poster';
 
 const posterConfig = {
   width: 750,
@@ -80,7 +80,7 @@ const posterConfig = {
 };
 
 // 生成海报
-const poster = await createImagesWithSharp(posterConfig);
+const poster = await createPoster(posterConfig);
 ```
 
 ## 📖 配置说明

@@ -23,7 +23,7 @@ export const loadFont = (filename: string, postscriptName?: string) => {
  * 8、其他形状【计划更新】
  */
 
-export const createImagesWithSharp = async (data: IPoster) => {
+export const createPoster = async (data: IPoster) => {
   const { width, height, background, elements } = data;
 
   // 创建背景渐变
