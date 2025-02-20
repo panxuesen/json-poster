@@ -1,5 +1,5 @@
 {
-  "name": "json-poster",
+  "name": "@panxuesen/json-poster",
   "version": "1.0.6",
   "description": "Generate posters by configuring json",
   "main": "dist/index.js",

@@ -14,7 +14,9 @@ jobs:
         with:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
-      - run: npm ci
-      - run: npm publish
+          scope: '@panxuesen'  # 明确指定作用域
+      - run: npm install
+      - run: npm build
+      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # 使用内置Token
