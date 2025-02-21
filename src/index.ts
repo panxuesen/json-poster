@@ -36,15 +36,16 @@ export const createPoster = async (data: IPoster) => {
 
   for (const element of sortedElements) {
     const position = await getElementPosition(element, width, height);
-    if (element.type === ElementType.IMG) {
+    const type = element.type.toLocaleLowerCase();
+    if (type === ElementType.IMG) {
       composites.push(await drawImgWithSharp(element as ElementImg, position)) 
-    } else if (element.type === ElementType.TEXT) {
+    } else if (type === ElementType.TEXT) {
       composites.push(await drawTextWithSharp(element as ElementText, position))
-    } else if (element.type === ElementType.RECT) {
+    } else if (type === ElementType.RECT) {
       composites.push(await drawRectWithSharp(element as ElementRect, position))
-    } else if (element.type === ElementType.LINE) {
+    } else if (type === ElementType.LINE) {
       composites.push(await drawLineWithSharp(element as ElementLine, position))
-    } else if (element.type === ElementType.MUTIPLE_TEXT) {
+    } else if (type === ElementType.MUTIPLE_TEXT) {
       composites.push(await drawMutipleTextWithSharp(element as ElementMutipleText, position))
     }
   }
@@ -217,7 +218,7 @@ function createGradientSVG(width: number, height: number, color: IColor): string
   return svgstr
 }
 
-function getDefsColor(color: IColor | string): { defs: string, fill: string, fillStyle: string } {
+function getDefsColor(color: IColor): { defs: string, fill: string, fillStyle: string } {
   if (typeof color === 'object' && color !== null && 'colors' in color) {
     let defs
     if (color.type === 'radial') {
@@ -334,7 +335,8 @@ function getCropImageInfo(mode: string = 'scaleToFill', iw: number, ih: number, 
 
 async function getElementPosition(element: IElement, canvasWidth: number, canvasHeight: number): Promise<{ x: number, y: number }> {
   let x: number = 0, y: number = 0, elementWidth = element.width
-  if (element.type === ElementType.TEXT) {
+  const type = element.type.toLocaleLowerCase();
+  if (type === ElementType.TEXT) {
     const elementText = element as ElementText
     let content = removeRichTextLabel(elementText.content)
     let TextFragment = {...element, content } as ElementText
@@ -342,7 +344,7 @@ async function getElementPosition(element: IElement, canvasWidth: number, canvas
     if (contentWidth < elementWidth) {
       elementWidth = contentWidth
     }
-  } else if (element.type === ElementType.MUTIPLE_TEXT) { 
+  } else if (type === ElementType.MUTIPLE_TEXT) { 
     const elementMutipleText = element as ElementMutipleText
     let contentWidth = await getFragmentsTextWidth(elementMutipleText.content)
     if (contentWidth < elementWidth) {
@@ -369,7 +371,7 @@ async function getElementPosition(element: IElement, canvasWidth: number, canvas
   } else {
     y = element.y
   }
-  return { x, y };
+  return { x: Number(x.toFixed()), y: Number(y.toFixed()) };
 }
 
 async function getTextContent(element: ElementText): Promise<string[]> {
@@ -397,7 +399,7 @@ async function getTextContent(element: ElementText): Promise<string[]> {
       lineCount ++ // 换行
     } else if (compareWidth >= maxWidth) { // 当前行字符串宽度超过了最大宽度 开始换行操作
       let endIndex = compareWidth === maxWidth ? index : index - 1  // 最后一个字符串索引
-      strList.push(content.substring(starIndex, endIndex) + addEllipsis ? ellipsisText : '') // 记录一行字符串 和末尾符号
+      strList.push(content.substring(starIndex, endIndex) + (addEllipsis ? ellipsisText : '')) // 记录一行字符串 和末尾符号
       starIndex = endIndex // 设置下一行首个字符串索引
       lineCount ++ // 换行
     } else if (index === content.length - 1) { // 如果当前行字符串宽度没有超过最大宽度，但是已经到了最后一个字符串则直接截取最后一行字符串 结束整个循环
