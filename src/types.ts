@@ -43,16 +43,16 @@ export interface IPoster {
     width: number,
     height: number,
     background: IColor,
-    directory: string,
+    directory?: string,
     elements: IElement[],
     sort: number
 }
 
 export interface IElement {
-    type: ElementType, // 元素类型 图片
+    type: ElementType | string, // 元素类型 图片
     width: number, // 元素宽度
     height: number, // 元素高度
-    align: ElementAlign, // 对齐方式
+    align?: ElementAlign | string, // 对齐方式
     zIndex: number, // 元素层级
     x: number | xAlign, // 元素坐标 或者 对齐方式
     y: number | yAlign, // 元素坐标 或者 对齐方式
@@ -83,7 +83,7 @@ export interface TextFragment extends TextFragmentStyle {
 
 export interface ElementImg extends IElement {
     type: ElementType.IMG, // 图片
-    mode: IImageMode,
+    mode?: IImageMode | string,
     content: string, // 图片地址
     gaussBlur: boolean, // 开启高斯模糊
     gaussRadius: number, // 高斯模糊半径
