@@ -1,5 +1,7 @@
+import { ElementAlign, ElementType,xAlign,yAlign, IPoster } from "./types";
+
 // demo数据
-export const posterDatas = [{
+export const posterDatas: IPoster[] = [{
   width: 600, // 海报宽度
   height: 710, // 海报高度
   directory: 'poster', // 海报存放目录
@@ -18,22 +20,22 @@ export const posterDatas = [{
   sort: 0,
   elements: [
     {
-      type: "IMG",
+      type: ElementType.IMG,
       content: 'https://static.lvtuguanjia.com/trip/tojoy/img/h5/app-liquidation/train-icon.png',
       // content: 'https://test-1258763073.cos.ap-beijing.myqcloud.com/image/applet/api/qr/a35a633d54364d99b44d73c1dd84e052.png',
       width: 298,
       height: 270,
-      align: 'center', // 水平对齐方式
+      align: ElementAlign.CENTER, // 水平对齐方式
       mode: 'aspectFit',
       zIndex: 0,
       borderRadius: 10,
       gaussBlur: false, // 开启高斯模糊
       gaussRadius: 40, // 高斯模糊半径
-      x: 'center',
-      y: 'center'
+      x: xAlign.CENTER,
+      y: yAlign.CENTER
     },
     {
-      type: 'MUTIPLE_TEXT',
+      type: ElementType.MUTIPLE_TEXT,
       content: [{
         fontFamily: 'D-DIN-PRO',
         // fontFamily: 'D-DIN-PRO-700-Bold',
@@ -62,7 +64,7 @@ export const posterDatas = [{
       }],
       width: 420,
       height: 90,
-      align: 'center', // 对齐方式
+      align: ElementAlign.CENTER, // 对齐方式
       fontFamily: 'D-DIN-PRO',
       // fontFamily: 'D-DIN-PRO-700-Bold',
       fontWeight: 400,
@@ -92,10 +94,10 @@ export const posterDatas = [{
     //   y: 'center'
     // },
     {
-      type: 'LINE', // 线条
+      type: ElementType.LINE, // 线条
       height: 1, // 线条高度 线条粗细
       width: 430, // 线条宽度
-      align: 'center', // 对齐方式
+      align: ElementAlign.CENTER, // 对齐方式
       color: '#F1F1F1', // 线条颜色
       zIndex: 0,
       x: 86,
@@ -126,7 +128,7 @@ export const posterDatas = [{
       { "type": "IMG", "content": "https://tojoy-mall-test.oss-cn-beijing.aliyuncs.com/product/swiper/1721872801195.jpg", "width": 520, "height": 520, "borderRadius": 4, "align": "center", "zIndex": 0, "x": 38, "y": 157 },
       { "type": "TEXT", "content": "步力宝悬磁鞋步力宝悬磁鞋步力宝悬磁鞋步力宝悬磁鞋步力宝悬磁鞋步力宝悬磁鞋步力宝悬磁鞋步力宝悬磁鞋", "width": 520, "height": 84, "align": "center", "fontFamily": "", "fontWeight": 400, "color": "#333333", "fontSize": 30, "maxLine": 2, "zIndex": 0, "x": 38, "y": 717 },
       { "type": "LINE", "width": 522, "height": 1, "align": "center", "color": "#F1F1F1", "zIndex": 0, "x": 38, "y": 820 },
-      { "type": "TEXT", "content": "长按识别二维码", "width": 200, "height": 38, "align": "left", "fontFamily": "", "fontWeight": 400, "color": "#333333", "fontSize": 25, "maxLine": 1, "zIndex": 0, "x": 38, "y": 889 },
-      { "type": "TEXT", "content": "查看商品详情", "width": 200, "height": 38, "align": "left", "fontFamily": "", "fontWeight": 400, "color": "#333333", "fontSize": 25, "maxLine": 1, "zIndex": 0, "x": 38, "y": 927 },
-      { "type": "IMG", "content": "https://pre-resource.kang-boss.com/bh-mall/self/wechat/qr/2c645c528af9421595e76f14dc857d84.png", "width": 166, "height": 166, "align": "left", "zIndex": 0, "x": 385, "y": 844 }]
+      { "type": "TEXT", "content": "长按识别二维码", "width": 200, "height": 38, "align": "", "fontFamily": "", "fontWeight": 400, "color": "#333333", "fontSize": 25, "maxLine": 1, "zIndex": 0, "x": 38, "y": 889 },
+      { "type": "TEXT", "content": "查看商品详情", "width": 200, "height": 38, "align": "", "fontFamily": "", "fontWeight": 400, "color": "#333333", "fontSize": 25, "maxLine": 1, "zIndex": 0, "x": 38, "y": 927 },
+      { "type": "IMG", "content": "https://pre-resource.kang-boss.com/bh-mall/self/wechat/qr/2c645c528af9421595e76f14dc857d84.png", "width": 166, "height": 166, "align": "", "zIndex": 0, "x": 385, "y": 844 }]
   }]

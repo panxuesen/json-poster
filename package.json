@@ -1,6 +1,6 @@
 {
   "name": "@panxuesen/json-poster",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Generate posters by configuring json",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "test": "test"
+    "test": "ts-node src/test.ts"
   },
   "repository": {
     "type": "git",
@@ -22,9 +22,12 @@
   },
   "keywords": [
     "poster",
+    "create poster",
     "海报",
     "海报生成",
-    "Node海报生成"
+    "Node海报生成",
+    "图片合成",
+    "图片生成"
   ],
   "author": "潘学森",
   "license": "MIT",

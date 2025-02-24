@@ -51,7 +51,7 @@ export const createPoster = async (data: IPoster) => {
   }
   await image.composite(composites)
   
-  return image.png(); // stream
+  return image; // stream
 
   // return image.png().toBuffer(); // buffer
 
